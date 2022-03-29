@@ -1,25 +1,4 @@
-
-const Course = (props) => {
-  const course = props.course
-  let exercises = []
-
-  const parts = course.parts.map((part) => {
-    exercises.push(part.exercises)
-    return <li key={part.id}>{part.name} {part.exercises}</li>
-  })
-
-  const sumExercises = exercises.reduce((previousValue, currentValue) => {
-    return previousValue + currentValue
-  })
-
-  return (
-    <div>
-    <h1>{course.name}</h1>
-    <p>{parts}</p>
-    <p>There are {sumExercises} exercises in total</p>
-    </div>
-  )
-}
+import Course from './Components/Course'
 
 const Courses = (props) => {
   const courseList = props.courses.map((course) => <Course course={course} key={course.id} />)
