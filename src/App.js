@@ -5,7 +5,6 @@ const Course = (props) => {
 
   const parts = course.parts.map((part) => {
     exercises.push(part.exercises)
-    console.log('parts is running!')
     return <li key={part.id}>{part.name} {part.exercises}</li>
   })
 
@@ -23,7 +22,13 @@ const Course = (props) => {
 }
 
 const Courses = (props) => {
-  return props.courses.map((course) => <Course course={course} />)
+  const courseList = props.courses.map((course) => <Course course={course} key={course.id} />)
+  return (
+    <div>
+    <h1>Web Development Curriculum</h1>
+    <div>{courseList}</div>
+    </div>
+  )
 }
 
 const App = () => {
